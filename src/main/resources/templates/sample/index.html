@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>メインページ</title>
+
+<style type="text/css">
+.list th {
+	background-color: #cccccc;
+	padding: 5px;
+}
+
+.list td {
+	padding: 5px;
+}
+</style>
+
+</head>
+<body>
+	<table class="list">
+		<tr>
+			<th>ID</th>
+			<th>氏名</th>
+			<th>アドレス</th>
+		</tr>
+		<tr th:each="sql:${list}">
+			<td th:text="${sql.id}">xx</td>
+			<td th:text="${sql.name}">name</td>
+			<td th:text="${sql.email}">address</td>
+		</tr>
+	</table>
+	<form method="post" action="/insert" accept-charset="UTF8"
+		th:object="${list}">
+		<div>
+			Name:<input type="text" name="name" />
+		</div>
+		<div>
+			Email:<input type="text" name="email" />
+		</div>
+		<input type="submit" value="新規登録" />
+	</form>
+
+	<form method="GET" action="/delete">
+		<div>
+			ID:<input type="text" name="id" />
+			<input type="submit" value="削除" />
+		</div>
+	</form>
+</body>
+</html>

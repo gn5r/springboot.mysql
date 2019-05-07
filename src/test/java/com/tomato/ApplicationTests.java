@@ -1,4 +1,4 @@
-package jp.gn5r.spring.sample;
+package com.tomato;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
